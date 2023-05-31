@@ -7,6 +7,29 @@ void main() {
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
+  my_algo() {
+
+    //adds user input, if user input is negative then a total will be printed
+//user entries are stored in a LIST
+List my_list = [];
+//IF x < 0
+  x = input('enter a number here: ');
+
+  if(x>0) {
+    //prompt user to enter another number
+    print('Thank you, your number has been stores');
+    my_list.add(x);
+    x = input('enter a number here: ');
+  }
+  else{
+    //PRINT an error message then print the final number
+    print('whoops! looks like you have entered a negative number.');
+    print('your total is: '+ my_list.fold(0, (a, b) => (a+b)));
+  }
+
+
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -56,17 +79,13 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       appBar: AppBar(
-
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-
         title: Text(widget.title),
       ),
       body: Center(
         child: Column(
-    
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Text(
